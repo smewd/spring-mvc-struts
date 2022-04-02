@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+		http://maven.apache.org/POM/4.0.0
+		http://maven.apache.org/maven-v4_0_0.xsd
+">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.smood</groupId>
+    <artifactId>spring-web-struts</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
+
+        <jackson.version>2.11.2</jackson.version>
+        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+        <lombok.version>1.18.22</lombok.version>
+        <spring-boot.version>1.5.22.RELEASE</spring-boot.version>
+        <spring.version>4.3.25.RELEASE</spring.version>
+        <spring-struts.version>3.2.18.RELEASE</spring-struts.version>
+        <stripes.version>1.5.2</stripes.version>
+        <struts.version>1.1</struts.version>
+        <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
+        <thymeleaf-extras-java8time.version>3.0.4.RELEASE</thymeleaf-extras-java8time.version>
+        <slf4j-api.version>1.7.36</slf4j-api.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>struts</groupId>
+            <artifactId>struts</artifactId>
+            <version>${struts.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.sql</groupId>
+                    <artifactId>jdbc-stdext</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-struts</artifactId>
+            <version>${spring-struts.version}</version>
+<!--                <exclusions>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>org.springframework</groupId>-->
+<!--                        <artifactId>spring-beans</artifactId>-->
+<!--                    </exclusion>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>org.springframework</groupId>-->
+<!--                        <artifactId>spring-context</artifactId>-->
+<!--                    </exclusion>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>org.springframework</groupId>-->
+<!--                        <artifactId>spring-core</artifactId>-->
+<!--                    </exclusion>-->
+<!--                </exclusions>-->
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven-war-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
