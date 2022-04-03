@@ -6,7 +6,15 @@
             http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans.xsd
 ">
-<!--    <bean name="/struts/dummy" class="com.smood.struts.DummyAction">-->
-<!--        <property name="service" ref="parentService"/>-->
-<!--    </bean>-->
+    <bean name="dummyService" class="com.smood.service.DummyService"/>
+    <bean name="/test" class="com.smood.struts.TestAction">
+        <property name="dummyService" ref="dummyService"/>
+    </bean>
+
+    <bean name="/step1" class="com.smood.struts.Step1Action">
+        <property name="dummyService" ref="dummyService"/>
+    </bean>
+    <bean name="/step2" class="com.smood.struts.Step2Action">
+        <property name="dummyService" ref="dummyService"/>
+    </bean>
 </beans>

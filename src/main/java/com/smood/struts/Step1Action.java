@@ -8,54 +8,40 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
 
-//@Component("/test")
-public class TestAction extends ExtendedLookupDispatchAction
+public class Step1Action extends ExtendedLookupDispatchAction
 {
 	@Setter
 	private DummyService dummyService;
 
 
-	public TestAction()
+	public Step1Action()
 	{
-		Logger logger = LoggerFactory.getLogger(TestAction.class);
-		logger.info("TestAction created.");
+		Logger logger = LoggerFactory.getLogger(Step1Action.class);
+		logger.info("Step1Action created.");
 	}
 
 
 	@Override
 	protected Map<String, String> getKeyMethodMap()
 	{
-		Map<String, String> map = new TreeMap<>();
-		map.put("button_step2", "step2");
-		return map;
+		return new HashMap<>();
 	}
 
 
 	public ActionForward empty(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response)
 	{
-		TestForm f = (TestForm)form;
+		Step1Form f = (Step1Form)form;
 		f.setValue(dummyService.printMessage("This is step 1"));
 
 		return mapping.findForward("step1");
-	}
-
-
-	public ActionForward step2(ActionMapping mapping, ActionForm form, HttpServletRequest request,
-			HttpServletResponse response)
-	{
-		TestForm f = (TestForm)form;
-		f.setValue(dummyService.printMessage("This is step 2"));
-
-		return mapping.findForward("step2");
 	}
 }
