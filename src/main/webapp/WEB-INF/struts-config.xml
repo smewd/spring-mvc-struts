@@ -7,7 +7,6 @@
     <form-beans>
         <form-bean name="step1Form" type="com.smood.struts.Step1Form"/>
         <form-bean name="step2Form" type="com.smood.struts.Step2Form"/>
-        <form-bean name="testForm" type="com.smood.struts.TestForm"/>
     </form-beans>
 
     <!-- ========== Global Forward Definitions ========= -->
@@ -29,19 +28,7 @@
                 scope="request">
             <forward name="step2" path="/WEB-INF/jsp/step2.jsp"/>
         </action>
-
-        <action path="/test" name="testForm"
-                type="org.springframework.web.struts.DelegatingActionProxy"
-                parameter="action"
-                scope="request">
-            <forward name="step1" path="/WEB-INF/jsp/step1.jsp"/>
-            <forward name="step2" path="/WEB-INF/jsp/step2.jsp"/>
-        </action>
     </action-mappings>
-
-<!--    <controller>-->
-<!--        <set-property property="processorClass" value="org.springframework.web.struts.AutowiringRequestProcessor"/>-->
-<!--    </controller>-->
 
     <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
         <set-property property="contextConfigLocation"

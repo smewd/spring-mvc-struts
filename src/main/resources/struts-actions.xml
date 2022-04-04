@@ -6,11 +6,6 @@
             http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans.xsd
 ">
-    <bean name="dummyService" class="com.smood.service.DummyService"/>
-    <bean name="/test" class="com.smood.struts.TestAction">
-        <property name="dummyService" ref="dummyService"/>
-    </bean>
-
     <bean name="/step1" class="com.smood.struts.Step1Action">
         <property name="dummyService" ref="dummyService"/>
     </bean>
